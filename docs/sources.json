@@ -1,0 +1,94 @@
+{
+  "accessed": "2026-10-05",
+  "method": "Public thread reader and official X public embed; exploratory qualitative sample",
+  "sources": [
+    {
+      "id": "X1",
+      "url": "https://x.com/NickADobos/status/2104231662326571391",
+      "date": "2026-09-27T15:28:17Z",
+      "access": "Official public embed JSON; direct X page returned 403.",
+      "observation": "The author objects to the review/CI cost that can accompany much faster code generation. Numerical claims are personal rhetoric, not measured evidence here.",
+      "theme": "review"
+    },
+    {
+      "id": "X2",
+      "url": "https://x.com/tonysimons_/status/2104334645248573759",
+      "date": "2026-09-27T22:17:30Z",
+      "access": "Official public embed JSON; visible text is partial; long-post continuation was unavailable.",
+      "observation": "The visible portion describes difficulty navigating a large agent-written PR and promotes Jev Code Reviewer. This is a product promotion, not an independent effectiveness study.",
+      "theme": "review"
+    },
+    {
+      "id": "X3",
+      "url": "https://x.com/kloss_xyz/status/2104088147739242660",
+      "date": "2026-09-27T05:58:01Z",
+      "access": "Official public embed JSON; visible text is partial; long-post continuation was unavailable.",
+      "observation": "The visible prompt asks a coding assistant to distinguish assumptions based on inspected code from inferences. Only the visible portion informs this project.",
+      "theme": "review"
+    },
+    {
+      "id": "R1",
+      "url": "https://www.reddit.com/r/EngineeringManagers/comments/1wvsvlp/has_code_review_become_the_bottleneck_for_anyone/",
+      "date": "Search index: 2026-10-02",
+      "access": "Public thread and visible comments read with the web reader.",
+      "observation": "The post describes output arriving faster than comfortable review. Replies discuss smaller changes, ownership and the role of ordinary engineering checks.",
+      "theme": "review"
+    },
+    {
+      "id": "R2",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1wt9ztq/what_exactly_are_we_cheering_for_with_every_new/",
+      "date": "Search index: 2026-09-29",
+      "access": "Public thread and visible comments read with the web reader.",
+      "observation": "The author separates fast generation from the ability to explain what ships. Replies disagree about how much downstream improvement newer tools bring.",
+      "theme": "review"
+    },
+    {
+      "id": "R3",
+      "url": "https://www.reddit.com/r/TechLeader/comments/1welhjo/code_review_bottleneck_after_ai_how_are_teams/",
+      "date": "Search index: 2026-09-12",
+      "access": "Public thread and visible comments read with the web reader.",
+      "observation": "A review queue is described as concentrated among a small set of approvers. Comments debate change size, understanding, human review and automated checks.",
+      "theme": "review"
+    },
+    {
+      "id": "R4",
+      "url": "https://www.reddit.com/r/BookmarkManagers/comments/1vv75ls/how_do_you_deal_with_saving_too_many_articles_and/",
+      "date": "Search index: 2026-08-22",
+      "access": "Public thread and visible comments read with the web reader.",
+      "observation": "The author saves across several places but rarely returns. Some replies report that better storage alone has not changed revisiting; many replies promote their own tools.",
+      "theme": "reading"
+    },
+    {
+      "id": "R5",
+      "url": "https://www.reddit.com/r/Twitter/comments/1wpz9k5/bookmarks_only_loading_to_a_certain_point_then/",
+      "date": "Search index: late September 2026; exact publication metadata unavailable",
+      "access": "Public thread read with the web reader.",
+      "observation": "The author reports trouble retrieving older saved posts. It motivates portable personal links, but is not proof of a platform-wide bug or a bug this app can repair.",
+      "theme": "reading"
+    },
+    {
+      "id": "R6",
+      "url": "https://www.reddit.com/r/ADHD/comments/1w3smml/avoid_messages_when_overwhelmed/",
+      "date": "Search index: 2026-08-31",
+      "access": "Public thread and visible comments read with the web reader.",
+      "observation": "The discussion describes avoiding messages when other work is demanding. It supplies a workflow observation, not diagnostic or treatment evidence.",
+      "theme": "reply"
+    },
+    {
+      "id": "R7",
+      "url": "https://www.reddit.com/r/ADHD/comments/1wm31ed/i_feel_completely_overwhelmed_by_texting_people/",
+      "date": "Search index: 2026-09-21",
+      "access": "Public thread and visible comments read with the web reader.",
+      "observation": "The author describes a growing reply queue and pressure to compose the right response. Replies discuss drafting separately and returning at a chosen time.",
+      "theme": "reply"
+    },
+    {
+      "id": "R8",
+      "url": "https://www.reddit.com/r/AuDHDWomen/comments/1wx9nn1/need_help_with_replying_to_texts_and_messages/",
+      "date": "Search index: 2026-10-04",
+      "access": "Public thread and visible comments read with the web reader.",
+      "observation": "The author describes a backlog across multiple apps. A reply points out that answering everyone at once can produce another wave of responses.",
+      "theme": "reply"
+    }
+  ]
+}

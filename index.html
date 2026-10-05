@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Inspect the change, keep the evidence." />
+    <meta name="theme-color" content="#ceff88" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Patch Atlas · Mete Alp Karvan</title>
+    <link rel="icon" href="assets/icon.svg" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="patch-atlas">
+    <a class="skip" href="#main"
+      ><span data-tr="İçeriğe geç" data-en="Skip to content"
+        >İçeriğe geç</span
+      ></a
+    >
+    <div class="shell">
+      <header class="topbar">
+        <a class="brand" href="./"
+          ><img src="assets/icon.svg" alt="" />Patch Atlas</a
+        >
+        <nav aria-label="App">
+          <span class="local"
+            ><span
+              data-tr="Cihazında · hesapsız"
+              data-en="On your device · no account"
+              >Cihazında · hesapsız</span
+            ></span
+          ><a href="https://github.com/metealpkarvan/patch-atlas">GitHub ↗</a
+          ><button id="language" type="button">EN</button>
+        </nav>
+      </header>
+      <main id="main">
+        <section class="hero">
+          <div>
+            <p class="eyebrow">
+              <span
+                data-tr="KÜÇÜK ARAÇ / GERÇEK BİR SORUN"
+                data-en="SMALL TOOL / A REAL FRICTION"
+                >KÜÇÜK ARAÇ / GERÇEK BİR SORUN</span
+              >
+            </p>
+            <h1>
+              <span
+                data-tr="Değişikliği gör. İnceleme izini koru."
+                data-en="Inspect the change, keep the evidence."
+                >Değişikliği gör. İnceleme izini koru.</span
+              >
+            </h1>
+            <p class="lead" id="lead"></p>
+          </div>
+          <div class="hero-mark" aria-hidden="true">±</div>
+        </section>
+        <div id="storage-warning" class="warning" role="alert" hidden></div>
+        <div class="grid">
+          <section class="panel">
+            <div class="section-head">
+              <h2>
+                <span
+                  data-tr="01 / Değişikliği getir"
+                  data-en="01 / Bring the change"
+                  >01 / Değişikliği getir</span
+                >
+              </h2>
+              <button id="demo" type="button">
+                <span data-tr="Örnek" data-en="Sample">Örnek</span>
+              </button>
+            </div>
+            <form id="diff-form">
+              <div class="field">
+                <label for="goal"
+                  ><span
+                    data-tr="Bu değişiklik neyi çözmeli?"
+                    data-en="What should this change solve?"
+                    >Bu değişiklik neyi çözmeli?</span
+                  ></label
+                ><textarea id="goal" maxlength="2000" rows="2"></textarea>
+              </div>
+              <div class="field">
+                <label for="diff"
+                  ><span data-tr="Unified Git diff" data-en="Unified Git diff"
+                    >Unified Git diff</span
+                  ></label
+                ><textarea
+                  id="diff"
+                  class="code-input"
+                  maxlength="500000"
+                  spellcheck="false"
+                ></textarea>
+                <p class="hint">
+                  git diff --no-ext-diff --no-color<br /><span
+                    data-tr="En fazla 500.000 karakter, 12.000 satır ve 80 dosya."
+                    data-en="Up to 500,000 characters, 12,000 lines and 80 files."
+                    >En fazla 500.000 karakter, 12.000 satır ve 80 dosya.</span
+                  >
+                </p>
+              </div>
+              <button class="primary" type="submit">
+                <span
+                  data-tr="İnceleme haritası oluştur"
+                  data-en="Build review map"
+                  >İnceleme haritası oluştur</span
+                >
+              </button>
+            </form>
+            <p class="note spaced">
+              <span
+                data-tr="Dikkat noktaları yalnızca dosya adı ve eklenen metinlere dayanır. Kaynak kod çalıştırılmaz; bulgular hata teşhisi değildir."
+                data-en="Attention cues use file names and added text only. Code is never executed; cues are not defect diagnoses."
+                >Dikkat noktaları yalnızca dosya adı ve eklenen metinlere
+                dayanır. Kaynak kod çalıştırılmaz; bulgular hata teşhisi
+                değildir.</span
+              >
+            </p>
+            <button id="report" type="button">
+              <span
+                data-tr="İnceleme kaydı indir"
+                data-en="Download review record"
+                >İnceleme kaydı indir</span
+              >
+            </button>
+          </section>
+          <section class="panel">
+            <div class="section-head">
+              <h2>
+                <span data-tr="02 / İnceleme haritası" data-en="02 / Review map"
+                  >02 / İnceleme haritası</span
+                >
+              </h2>
+              <span id="review-count" class="tag"></span>
+            </div>
+            <div id="metrics" class="metrics"></div>
+            <div id="file-nav" class="file-nav" role="group"></div>
+            <div id="review"></div>
+          </section>
+        </div>
+        <section class="portability">
+          <div>
+            <h2>
+              <span
+                data-tr="Verin seninle kalsın"
+                data-en="Keep your data with you"
+                >Verin seninle kalsın</span
+              >
+            </h2>
+            <p>
+              <span
+                data-tr="Bu tarayıcıda yerel kayıt. Başka bir cihaza geçmeden önce JSON yedeğini indir."
+                data-en="Stored in this browser. Download a JSON backup before moving to another device."
+                >Bu tarayıcıda yerel kayıt. Başka bir cihaza geçmeden önce JSON
+                yedeğini indir.</span
+              >
+            </p>
+          </div>
+          <div class="actions">
+            <button id="backup" type="button">
+              <span data-tr="JSON yedek" data-en="JSON backup"
+                >JSON yedek</span
+              ></button
+            ><label class="file-button" for="import"
+              ><span data-tr="Yedek yükle" data-en="Restore backup"
+                >Yedek yükle</span
+              ></label
+            ><input
+              id="import"
+              type="file"
+              accept="application/json,.json"
+            /><button id="reset" type="button" class="quiet">
+              <span data-tr="Kayıtları sil" data-en="Clear records"
+                >Kayıtları sil</span
+              >
+            </button>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <details>
+          <summary>
+            <span
+              data-tr="Gizlilik, kullanım ve araştırma"
+              data-en="Privacy, use and research"
+              >Gizlilik, kullanım ve araştırma</span
+            >
+          </summary>
+          <p>
+            <span
+              data-tr="İçeriklerin sunucuya gönderilmez. Yerel kayıt şifreli değildir; tarayıcı verileri silinirse kayıtlar da silinir. Dış bağlantılar yalnızca sen açtığında ziyaret edilir. İlk çevrimiçi ziyaretten sonra uygulama arayüzü çevrimdışı açılabilir; bağlantı verdiğin sayfalar önbelleğe alınmaz."
+              data-en="Your content is not sent to a server. Local storage is unencrypted; clearing browser data removes records. External pages are visited only when you open their links. After a first online visit the app interface can open offline; linked pages are not cached."
+              >İçeriklerin sunucuya gönderilmez. Yerel kayıt şifreli değildir;
+              tarayıcı verileri silinirse kayıtlar da silinir. Dış bağlantılar
+              yalnızca sen açtığında ziyaret edilir. İlk çevrimiçi ziyaretten
+              sonra uygulama arayüzü çevrimdışı açılabilir; bağlantı verdiğin
+              sayfalar önbelleğe alınmaz.</span
+            >
+          </p>
+          <p>
+            <span
+              data-tr="Örnekler kurgusaldır. Bu bir Twitter/X, Reddit veya mesajlaşma hesabı entegrasyonu değildir. Kaynaklar keşif amaçlıdır; tüm toplumu temsil etmez."
+              data-en="Examples are fictional. This is not a Twitter/X, Reddit or messaging account integration. Sources are exploratory and do not represent entire communities."
+              >Örnekler kurgusaldır. Bu bir Twitter/X, Reddit veya mesajlaşma
+              hesabı entegrasyonu değildir. Kaynaklar keşif amaçlıdır; tüm
+              toplumu temsil etmez.</span
+            >
+          </p>
+          <a
+            href="https://github.com/metealpkarvan/patch-atlas/blob/main/docs/RESEARCH.md"
+            ><span
+              data-tr="Araştırma ve tasarım gerekçesi"
+              data-en="Research and design rationale"
+              >Araştırma ve tasarım gerekçesi</span
+            >
+            ↗</a
+          >
+        </details>
+        <p>© 2026 Mete Alp Karvan · MIT · 1.0.0</p>
+      </footer>
+    </div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
